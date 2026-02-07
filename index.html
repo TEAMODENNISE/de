@@ -14,7 +14,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #fff1f6, #ffe4e1);
+      background: linear-gradient(135deg, #fff1c1, #ffeaa7);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,18 +28,34 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       text-align: center;
       max-width: 420px;
+      position: relative;
       animation: float 3s ease-in-out infinite;
     }
 
     h1 {
-      color: #ff6f91;
+      color: #f6b93b;
       margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #6d4c41;
     }
 
     p {
       color: #555;
       font-size: 1.1rem;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+    }
+
+    .pompom {
+      width: 150px;
+      margin-bottom: 15px;
+      animation: bounce 2.5s infinite;
+    }
+
+    .pompom-small {
+      width: 120px;
+      margin-bottom: 15px;
     }
 
     .buttons {
@@ -58,9 +74,9 @@
     }
 
     #yes {
-      background: #ffb6c1;
+      background: #f6b93b;
       color: white;
-      box-shadow: 0 10px 20px rgba(255,182,193,0.5);
+      box-shadow: 0 10px 20px rgba(246,185,59,0.5);
     }
 
     #no {
@@ -79,6 +95,11 @@
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .heart {
@@ -104,9 +125,13 @@
 <body>
 
   <div class="card" id="card">
-    <h1>Dennise 💛</h1>
+    <img
+      class="pompom"
+      src="https://i.imgur.com/7pM9KQx.png"
+      alt="Pompompurin"
+    />
 
-    </p>
+    <h1>Dennise 💛</h1>
 
     <h2>Will you be my Valentine? 💌</h2>
 
@@ -117,12 +142,18 @@
   </div>
 
   <div class="card hidden" id="yesCard">
-    <h1>YAYYYY 🥹💖</h1>
+    <img
+      class="pompom-small"
+      src="https://i.imgur.com/0p9YQZC.png"
+      alt="Happy Pompompurin"
+    />
+
+    <h1>YAYYYY 🥹💛</h1>
     <p>
-      You just made my heart so happy.<br>
-      TE AMOOO, Dennise.
+      Pompompurin is celebrating because you said yes!  
+      I can’t wait to make more memories with you, Dennise.
     </p>
-    <p>Happy Valentine’s Day 💛</p>
+    <p>Happy Valentine’s Day 💌</p>
   </div>
 
   <script>
@@ -147,7 +178,7 @@
       setInterval(() => {
         const heart = document.createElement("div");
         heart.className = "heart";
-        heart.innerText = "💖";
+        heart.innerText = "💛";
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
         document.body.appendChild(heart);
